@@ -157,3 +157,5 @@ Now you can use commands with clicking on player name at the chat window.
 You can download custom game modes from [here](https://github.com/MythB/BombSquad-Mods/tree/master/Games)
 
 <h2>License</h2>
+
+[MIT License](https://github.com/MythB/BombSquad-Mods/blob/master/LICENSE)
