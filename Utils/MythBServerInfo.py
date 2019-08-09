@@ -14,7 +14,7 @@ statsfile = '/root/bs/stats/stats.json'
 ##Create Empty Map
 class MythBServerInfoMap(Map):
     import rampageLevelDefs as defs
-    name = 'MythB'
+    name = 'Player Stats By MythB'
     playTypes = ['MythB']
 
     @classmethod
@@ -81,17 +81,17 @@ class MythBServerInfo(bs.TeamGameActivity):
 
     @classmethod
     def getName(cls):
-        return 'Server Stats'
+        return ''
 
     @classmethod
     def getDescription(cls,sessionType):
-        return ('Use this mod for showing player ranks on game \n'
-				'Just add to playlist.\n'
-				'Thats all, Now you can see player stats on game!!')
+        return ('Use this mod for displaying\n'
+                'player ranks in server. \n'
+				'Just add to playlist.')
 
     @classmethod
     def getSupportedMaps(cls, sessionType):
-        return [u'MythB']
+        return [u'Player Stats By MythB']
     
     def onBegin(self):
         bs.TeamGameActivity.onBegin(self)    
