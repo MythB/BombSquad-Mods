@@ -140,8 +140,8 @@ Move downloaded files to your bombsquad scripts folder<br />
     gDefaultTeamColors = ((0.0, 1.0, 0.0), (1.0, 0.0, 0.0))
     gDefaultTeamNames = ("TEAM 1", "TEAM 2")
 ```
-**7**.For displaying player stats in game, you need to add the ```nameless``` game to your playlist.<br /> To doing this you must download and move ```MythBServerInfo.py``` and ```MythBAdminList.py``` to your bombsquad mod folder in your device<br />
-if you did it right, you should see ```@Player Stats By MythB``` in your playlist.
+**7**.For displaying player stats in game, you need to add the ```nameless``` game to your playlist.<br /> To doing this you must download and move ```MythBServerInfo.py``` and ```MythBAdminList.py``` to your bombsquad mod folder in your device.<br />
+If you did it right, you should see ```@Player Stats By MythB``` in your playlist.
 
 Thats all !
 <h2>Usage</h2>
