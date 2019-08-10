@@ -9,7 +9,7 @@ These are my mods for the game
 **Check Out My Modded BombSquad Server !** <br />
 Name = MythB - Ranked<br />
 Address = tiftif.me <br />
-Port = 43210
+Port = 43211
 
 <h2>Contents</h2>
 
