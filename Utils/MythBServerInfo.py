@@ -84,12 +84,6 @@ class MythBServerInfo(bs.TeamGameActivity):
         return ''
 
     @classmethod
-    def getDescription(cls,sessionType):
-        return ('Use this mod for displaying\n'
-                'player ranks in server. \n'
-				'Just add to playlist.')
-
-    @classmethod
     def getSupportedMaps(cls, sessionType):
         return [u'Player Stats By MythB']
     
