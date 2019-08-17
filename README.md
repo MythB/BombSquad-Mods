@@ -1,6 +1,6 @@
 <h1>BombSquad Mods By MythB</h1>
 
-<h2>Hey There!</h2>
+<h2>Hi There!</h2>
 
 These are my mods for the game
 <a href="http://www.froemling.net/apps/bombsquad">BombSquad</a> by 
