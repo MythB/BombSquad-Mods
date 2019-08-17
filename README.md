@@ -1,15 +1,16 @@
 <h1>BombSquad Mods By MythB</h1>
 
-<h2>Getting Started</h2>
+<h2>Hey There!</h2>
 
 These are my mods for the game
 <a href="http://www.froemling.net/apps/bombsquad">BombSquad</a> by 
 <a href="http://www.froemling.net/about">Eric Froemling</a>
 
 **Check Out My Modded BombSquad Server !** <br />
-Name = MythB - Ranked<br />
-Address = tiftif.me <br />
-Port = 43211
+Download [MythBServerButton.py](https://github.com/MythB/BombSquad-Mods/blob/master/Utils/MythBServerButton.py)<br />
+Add to your bombsquad mod folder in your device.<br />
+Ta da ! My server button will apeear in mainmenu, you can easily join my server from there.<br />
+[Usage](#Usage)  <br />
 
 <h2>Contents</h2>
 
@@ -146,12 +147,21 @@ If you did it right, you should see ```@Player Stats By MythB``` in your playlis
 Thats all !
 <h2>Usage</h2>
 
+<h6>Fast Server Button</h6>
+
+Download [MythBServerButton.py](https://github.com/MythB/BombSquad-Mods/blob/master/Utils/MythBServerButton.py)<br />
+Add to your bombsquad mod folder in your device<br />
+Ta da ! My server button will apeear in mainmenu, you can easily join my server from there.<br />
+![](https://github.com/MythB/BombSquad-Mods/blob/master/Media/serverButton.png)<br />
+this script automatically update my server-ip online, so i can change my server config on the fly !
+![](https://github.com/MythB/BombSquad-Mods/blob/master/Media/serverButtonWindow.png)
+
 <h6>Fast Admin Commands Shortcut</h6>
 
 Download [MythBAdminShortcut.py](https://github.com/MythB/BombSquad-Mods/blob/master/Utils/MythBAdminShortcut.py)<br />
 Add to your bombsquad mod folder in your device<br />
 Now you can use commands with clicking on player name at the chat window.
-![](https://github.com/MythB/BombSquad-Mods/blob/master/Media/commandShortcuts.png)
+![](https://github.com/MythB/BombSquad-Mods/blob/master/Media/commandShortcuts.png)<br />
 
 <h6>For Custom Games</h6>
 
