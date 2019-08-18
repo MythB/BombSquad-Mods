@@ -235,7 +235,7 @@ class ServerStatusWindow(Window):
             return
         self.Timir = None
         bsInternal._connectToParty(finalFetchedAddress, finalFetchedPort)
-        bs.playSound(bs.getSound("achievement"))
+        #bs.playSound(bs.getSound("achievement"))
         
 def fadeToRed():
     activity = bsInternal._getForegroundHostActivity()
