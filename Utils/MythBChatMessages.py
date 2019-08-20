@@ -27,7 +27,7 @@ class RSSchat(object):
                         <th align="left">NAME</th><th align="left">MESSAGE</th><th align="left">DATE</th></tr>""")           
         else:
             with open(chatfile,mode='a') as f:
-                f.write('<tr><td>'+nick+'</td><td>'+msg+'</td><td>'+msgTime+'</td></tr>')
+                f.write('<tr><td>'+nick.encode('utf-8')+'</td><td>'+msg.encode('utf-8')+'</td><td>'+msgTime+'</td></tr>')
 t=RSSchat()
 def collectedMsg(msg):
     if bsInternal._getForegroundHostActivity() is not None:
