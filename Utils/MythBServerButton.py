@@ -208,7 +208,7 @@ class ServerStatusWindow(Window):
         else:
             ipAdr = result['l']
             for i in ipAdr:
-                if i['a'] == finalFetchedAddress:
+                if i['a'] == finalFetchedAddress and i['p'] == finalFetchedPort:
                     if i['s'] == i['sm']:
                         self.partySizeColor = (1,0,0)
                     else:
