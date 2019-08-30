@@ -9,6 +9,8 @@ import threading
 import json
 import os
 import urllib2
+import fcntl
+import time
 # where our stats file and pretty html output will go
 statsfile = '/root/bs/stats/stats.json'
 htmlfile = '/root/bs/stats/statspage.html'
@@ -52,8 +54,14 @@ class UpdateThread(threading.Thread):
     def run(self):
         # pull our existing stats from disk
         if os.path.exists(statsfile):
-            with open(statsfile) as f:
-                stats = json.loads(f.read())
+            while True:
+                try:
+                    with open(statsfile) as f:
+                        stats = json.loads(f.read())
+                        break
+                except Exception as (e):
+                    print e
+                    time.sleep(0.05)
         else:
             stats = {}
             
@@ -82,24 +90,35 @@ class UpdateThread(threading.Thread):
             stats[account_id]['name_full'] = name
             
         # dump our stats back to disk
-        with open(statsfile, 'w') as f:
-            f.write(json.dumps(stats,indent=4))
+        #import fcntl
+        while True:
+            try:
+                with open(statsfile, 'w') as f:
+                    fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                    f.write(json.dumps(stats,indent=4))
+                    f.flush()
+                    fcntl.flock(f, fcntl.LOCK_UN)
+                    
+                # lastly, write a pretty html version.
+                # our stats url could point at something like this...
+                entries = [(a['kills'], a['killed'], a['scores'], a['played'], a['name_html']) for a in stats.values()]
+                # this gives us a list of kills/names sorted high-to-low
+                entries.sort(reverse=True)
+                with open(htmlfile, 'w') as f:
+                    f.write('<head><meta charset="UTF-8"></head><body>')
+                    for entry in entries:
+                        kills = str(entry[0])
+                        killed = str(entry[1])
+                        scores = str(entry[2])
+                        played = str(entry[3])
+                        name = entry[4].encode('utf-8')
+                        f.write(kills + ' kills ' + killed + ' deaths ' + scores + ' score ' + played + ' games : ' + name + '<br>')
+                    f.write('</body>') 
+                    break
+            except Exception as (e):
+                print e
+                time.sleep(0.05)
             
-        # lastly, write a pretty html version.
-        # our stats url could point at something like this...
-        entries = [(a['kills'], a['killed'], a['scores'], a['played'], a['name_html']) for a in stats.values()]
-        # this gives us a list of kills/names sorted high-to-low
-        entries.sort(reverse=True)
-        with open(htmlfile, 'w') as f:
-            f.write('<head><meta charset="UTF-8"></head><body>')
-            for entry in entries:
-                kills = str(entry[0])
-                killed = str(entry[1])
-                scores = str(entry[2])
-                played = str(entry[3])
-                name = entry[4].encode('utf-8')
-                f.write(kills + ' kills ' + killed + ' deaths ' + scores + ' score ' + played + ' games : ' + name + '<br>')
-            f.write('</body>')
             
         # aaand that's it!  There IS no step 27!
         from datetime import datetime

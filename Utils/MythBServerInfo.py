@@ -92,20 +92,24 @@ class MythBServerInfo(bs.TeamGameActivity):
         scoreList = []
         kdList = []
         if os.path.exists(statsfile):
-         with open(statsfile) as f:
-           data = json.loads(f.read())
-           for i in data:  #check if player never were killed # check if player played at least 20 games  else make all scores zero / names -- check id none
-            avgScore = data[i]['name_full'] if data[i]['played'] > 19 else \
-            '--', float(data[i]['scores']) / (data[i]['played']) if data[i]['played'] > 19 else \
-            0, i if data[i]['played'] > 19 else 'null'
-            kdRatio = data[i]['name_full'] if data[i]['played'] > 19 else \
-            '--', float(data[i]['kills']) / ( 1 if data[i]['killed'] == 0 else data[i]['killed']) if data[i]['played'] > 19 else \
-            0, i if data[i]['played'] > 19 else 'null'
-            #sorted(ortList,key=itemgetter(2))
-            #ortListy = sorted(ortList, key=itemgetter(2), reverse=True)
-            #print ortList   #0nick  2ortkill 4 ortkilled  6ort score
-            scoreList.append(avgScore)
-            kdList.append(kdRatio)
+            try:
+                with open(statsfile) as f:
+                    data = json.loads(f.read())
+                    for i in data:  #check if player never were killed # check if player played at least 20 games  else make all scores zero / names -- check id none
+                        avgScore = data[i]['name_full'] if data[i]['played'] > 19 else \
+                        '--', float(data[i]['scores']) / (data[i]['played']) if data[i]['played'] > 19 else \
+                        0, i if data[i]['played'] > 19 else 'null'
+                        kdRatio = data[i]['name_full'] if data[i]['played'] > 19 else \
+                        '--', float(data[i]['kills']) / ( 1 if data[i]['killed'] == 0 else data[i]['killed']) if data[i]['played'] > 19 else \
+                        0, i if data[i]['played'] > 19 else 'null'
+                        #sorted(ortList,key=itemgetter(2))
+                        #ortListy = sorted(ortList, key=itemgetter(2), reverse=True)
+                        #print ortList   #0nick  2ortkill 4 ortkilled  6ort score
+                        scoreList.append(avgScore)
+                        kdList.append(kdRatio)
+            except Exception as (e):
+                print e
+                bs.screenMessage('Unavailable Now ',color = (0.9,0,0))
         else:
             kdList = []
             scoreList = []
@@ -577,7 +581,7 @@ class MythBServerInfo(bs.TeamGameActivity):
         self.powerUpText(textMartyInfo,posMartyInfo,scaleMartyInfo,colorMartyInfo,maxWidthMartyInfo)
                        
         self._sound = bs.newNode('sound',attrs={'sound':bs.getSound('victoryMusic'),'volume':1.0})             
-        self._endGameTimer = bs.Timer(20000,bs.WeakCall(self.endGame))
+        self._endGameTimer = bs.Timer(17000,bs.WeakCall(self.endGame))
         #bsUtils.ZoomText('MYTHB', lifespan=22000, jitter=2.0,
                          #position=(100,120), scale=0.6, maxWidth=800,
                          #trail=True, color=(0.5,0.5,1)).autoRetain()
