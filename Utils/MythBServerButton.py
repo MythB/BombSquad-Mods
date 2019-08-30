@@ -221,6 +221,7 @@ class ServerStatusWindow(Window):
                         finalFetchedStats = i['sa'] if i['sa'] !='' else self.sb.delete()
 
     def _stats(self):
+        finalFetchedStats.replace('${ACCOUNT}', bsInternal._getAccountMiscReadVal2('resolvedAccountID', 'UNKNOWN'))
         bs.openURL(finalFetchedStats)
       
     def _cancel(self):
