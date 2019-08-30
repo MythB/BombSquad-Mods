@@ -116,18 +116,21 @@ Move downloaded files to your bombsquad scripts folder<br />
 
 **3**.Open MythBAdminList.py and ```add``` your account ID to ```AdminList```, save it. (*This makes you admin!*)<br />
 
-**4**.Go to bombsquad scripts folder and ```owerwrite``` the following lines with bsUI.py "_handleLocalChatMessage():"<br />
+**4**.Go to bombsquad scripts folder and ```owerwrite``` the following lines with bsUI.py "_filterChatMessage()"<br />
 
 ```python
-    def _handleLocalChatMessage(msg):
-    global gPartyWindow
-    import MythBChatMessages
-    MythBChatMessages.collectedMsg(msg)
-    if '/' in msg:
-       import MythBAdminCommands
-       MythBAdminCommands.cmd(msg)
-    if gPartyWindow is not None and gPartyWindow() is not None:
-        gPartyWindow().onChatMessage(msg)
+def _filterChatMessage(msg, clientID):
+    if not msg or not msg.strip():
+        return None
+    else:
+        import MythBChatMessages
+        MythBChatMessages.collectedMsg(msg, clientID)
+        if '/' in msg[0]:
+            import MythBAdminCommands
+            MythBAdminCommands.cmd(msg, clientID)
+            return None
+        else:
+            return (msg)
 ```
 
 **5**.Go to bombsquad scripts folder and ```add``` the following 2 lines to bsGame.py "ScoreScreenActivity.onBegin():"
