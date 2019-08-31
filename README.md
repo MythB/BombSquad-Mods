@@ -18,7 +18,7 @@ Ta da ! My server button will apeear in mainmenu, you can easily join my server 
 [Ranking System](#RankingSystem) <br />
 [Admin System](#AdminSystem) <br />
 [Chat Message Log](#ChatMessageLog)<br />
-[Custom Game Modes](https://github.com/user/repo/blob/branch/other_file.md)<br />
+[Custom Game Modes](https://github.com/MythB/BombSquad-Mods/tree/master/Games)<br />
 
 <h2>CustomPowerups</h2>
 
