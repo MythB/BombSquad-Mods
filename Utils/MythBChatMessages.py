@@ -24,25 +24,27 @@ class Optchat(object):
                 f.write('<tr><td>'+nick+'</td><td>'+msg+'</td><td>'+msgTime+'</td><td>'+accountID+'</td></tr>')
 t=Optchat()
 def collectedMsg(msg, clientID):
+    isAccAccesible = False #check is account id accesible
     if bsInternal._getForegroundHostActivity() is not None:
-        try:
-            if bsInternal._getForegroundHostActivity().players != []:
-                for i in bsInternal._getForegroundHostActivity().players:
-                    if i.getInputDevice().getClientID() == clientID:
-                       accountID = i.get_account_id()
-                       nick = i.getName().encode('utf8')
-                       t.collector(msg, nick, accountID)
-                    else:
-                        for s in bsInternal._getGameRoster():
-                            if s['clientID'] == clientID:
-                                nick = s['displayString']
-                                accountID = '*UNKNOWN*'
-                                t.collector(msg, nick, accountID)                        
-            else:
+        if bsInternal._getForegroundHostActivity().players:# check if player exists
+            for i in bsInternal._getForegroundHostActivity().players:
+                if i.getInputDevice().getClientID() == clientID:
+                    isAccAccesible = True
+                    accountID = i.get_account_id()
+                    nick = i.getName().encode('utf8')
+                    t.collector(msg, nick, accountID)
+                    break
+            if not isAccAccesible: # if not, go without account ıd
                 for s in bsInternal._getGameRoster():
                     if s['clientID'] == clientID:
                         nick = s['displayString']
-                        accountID = '*UNKNOWN*'
+                        accountID = 'NOT FOUND'
                         t.collector(msg, nick, accountID)
-        except Exception as e:
-            print (e)
+                        break
+        else:#if not, continue from here
+            for s in bsInternal._getGameRoster():
+                if s['clientID'] == clientID:
+                    nick = s['displayString']
+                    accountID = 'NOT FOUND'
+                    t.collector(msg, nick, accountID)
+                    break
