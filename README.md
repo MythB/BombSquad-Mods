@@ -4,7 +4,8 @@
 
 These are my mods for the game
 <a href="http://www.froemling.net/apps/bombsquad">BombSquad</a> by 
-<a href="http://www.froemling.net/about">Eric Froemling</a>
+<a href="http://www.froemling.net/about">Eric Froemling</a><br />
+*Last updated on 2019-09-03 for BombSquad version 1.4.150*
 
 **Check Out My Modded BombSquad Server !** <br />
 Download [MythBServerButton.py](https://github.com/MythB/BombSquad-Mods/blob/master/Utils/MythBServerButton.py)<br />
@@ -48,10 +49,10 @@ For fighters trophy on  the```left```, admins at the```center```, scorers on the
 
 <h2>ChatMessageLog</h2>
 
-Name - Message - Date logging.<br />
-Storing as HTML Table
+Name - Message - Date - AccountID logging.<br />
+Storing as searchable and sortable HTML Table
 
-![alt text](https://github.com/MythB/BombSquad-Mods/blob/master/Media/chatMessagesLog.jpeg)
+![alt text](https://github.com/MythB/BombSquad-Mods/blob/master/Media/chatMessagesLogs.jpeg)
 
 <h3>AdminSystem</h3>
 
