@@ -34,7 +34,7 @@ def collectedMsg(msg, clientID):
                     nick = i.getName().encode('utf8')
                     t.collector(msg, nick, accountID)
                     break
-            if not isAccAccesible: # if not, go without account ıd
+            if not isAccAccesible: # if not, go without account id
                 for s in bsInternal._getGameRoster():
                     if s['clientID'] == clientID:
                         nick = s['displayString']
