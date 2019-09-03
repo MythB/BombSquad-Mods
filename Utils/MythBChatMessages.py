@@ -27,7 +27,7 @@ table {width:100%; table-layout: fixed;}th, td {padding: 5px; text-align: left; 
 {background-color: #F5F5F5;}table.sortable tr:nth-child(odd) {background-color:#fff;}table.sortable th {background-color: black;color: white;cursor: pointer;}
 </style><table class="sortable" id="chatTable"><caption><p><input type="text" id="searchInput" style="border: none; border:2px solid black; 
 border-radius: 5px; width: 20%; padding: 2px;" onkeyup="searchFunction()" placeholder="Search.."></p></caption><tr><th class="sorttable_alpha" 
-width="167px">NAME</th><th class="sorttable_alpha">MESSAGE</th><th width="149"px>DATE</th><th width="250">ACCOUNT-ID</th></tr>""")           
+width="167">NAME</th><th class="sorttable_alpha">MESSAGE</th><th width="149">DATE</th><th width="250">ACCOUNT-ID</th></tr>""")           
         else:
             with open(chatfile,mode='a') as f:
                 f.write('<tr><td>'+nick+'</td><td>'+msg+'</td><td>'+msgTime+'</td><td>'+accountID+'</td></tr>'+'\n')
