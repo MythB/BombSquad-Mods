@@ -9,7 +9,7 @@ import MythBAdminList as mbal
 
 #statsfile = 'C:\Users\MythB\Desktop\SERVER STATS\stats.json'
 statsfile = '/root/bs/stats/stats.json'
-#Use your own file location here
+#Use your own file location here server by evil
 
 ##Create Empty Map
 class MythBServerInfoMap(Map):
